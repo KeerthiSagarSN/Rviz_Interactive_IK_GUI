@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="inverse_kinematics_interactive_rviz" type="Interactive_IK.py" name="interactive_ik_rviz" output="screen"/>
+    <node pkg="inverse_kinematics_interactive_rviz" type="basic_control_marker.py" name="interactive_marker" output="screen"/>  
+</launch>
+
