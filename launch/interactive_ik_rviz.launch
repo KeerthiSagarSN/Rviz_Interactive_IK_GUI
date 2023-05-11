@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="interactive_ik_rviz" type="Interactive_IK.py" name="interactive_ik_rviz" output="screen"/>
+    <node pkg="interactive_ik_rviz" type="basic_control_marker.py" name="interactive_marker" output="screen"/>  
+</launch>
+
