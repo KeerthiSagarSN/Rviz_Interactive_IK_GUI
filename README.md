@@ -3,7 +3,7 @@
 This repository includes nodes for generating and visualizing Cartesian Available : (1) Velocity Polytope (2) Force Polytope (3) Desired Polytope (4) Running Inverse Kinematics Computation for Serial Robots
 
 ## Installation
-This repository was tested on KUKA KR4 R600 Sixx robot with [KUKA RSI](https://docs.quanser.com/quarc/documentation/kuka_rsi_block.html) package installed in it. The robot is controllled through an external PC with [ROS Noetic](http://wiki.ros.org/noetic) and Ubuntu 20.04 LTS. 
+This repository was tested on UR5 robot with [UR5](https://github.com/KeerthiSagarSN/universal_robot.git) package. The robot is controllled through an external PC with [ROS Noetic](http://wiki.ros.org/noetic) and Ubuntu 20.04 LTS. 
 ### Hardware requirements
 * External PC. Our specifications were;
 ```
@@ -11,8 +11,8 @@ ntel® Core™ i7-10700K CPU @ 3.80GHz × 16
 RAM: 16 GB
 Graphics: NVIDIA Corporation GP106GL [Quadro P2200]
 ```
-* KUKA Robot. We used KUKA KR6 R700 Sixx.
-* Gripper. 
+* UR5 Robot
+
 
 ### Software and Library Requirements - Dependencies
 
