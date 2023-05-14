@@ -7,7 +7,7 @@ from PyQt5.QtCore import *
 import sys
 from geometry_msgs import msg
 from geometry_msgs.msg import Pose, Twist, PoseStamped, TwistStamped, WrenchStamped, PointStamped
-from std_msgs.msg import Bool, Float32,Int8,String
+from std_msgs.msg import Bool, Float32,Int16,String
 
 class MyPanel(QWidget):
     def __init__(self):
@@ -54,7 +54,7 @@ class MyPanel(QWidget):
         # Create a publisher for the panel
         self.pub_start_ik = rospy.Publisher("run_ik", Bool, queue_size=1)
         self.pub_poly_display = rospy.Publisher("polytope_show", Bool, queue_size=1)
-        self.sub_end_ik = rospy.Subscriber("ik_progress",Int8,self.completed_ik)
+        self.sub_end_ik = rospy.Subscriber("ik_progress",Int16,self.completed_ik)
         self.sub_ik_status = rospy.Subscriber("status_ik",String,self.status_ik)
 
 
