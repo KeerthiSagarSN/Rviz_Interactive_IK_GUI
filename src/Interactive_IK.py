@@ -17,6 +17,8 @@ class MyPanel(QWidget):
         self.button1 = QPushButton("Run IK", self)
         self.button2 = QPushButton("Polyope: ON", self)
         self.button3 = QPushButton("Polytope: Off", self)
+        self.button4 = QPushButton("Reset", self)
+
 
         # Create a vertical layout and add the buttons
         vbox = QVBoxLayout()
@@ -29,6 +31,9 @@ class MyPanel(QWidget):
         
         # add the status bar to the layout
         vbox.addWidget(self.progress_bar)
+
+        vbox.addWidget(self.button4)
+
         
         # set the status message
         #progress_bar.showMessage('Ready')
@@ -50,6 +55,8 @@ class MyPanel(QWidget):
         self.button1.clicked.connect(self.button1_callback)
         self.button2.clicked.connect(self.button2_callback)
         self.button3.clicked.connect(self.button3_callback)
+        self.button4.clicked.connect(self.button4_callback)
+
 
         # Create a publisher for the panel
         self.pub_start_ik = rospy.Publisher("run_ik", Bool, queue_size=1)
@@ -121,6 +128,31 @@ class MyPanel(QWidget):
         # Update the progress bar
         #self.progress_bar.setValue(75)
 
+
+    def button4_callback(self):
+        # Create a message and publish it
+        #msg = Bool()
+        #msg.data = False
+        self.ik_progress = 0.0
+        self.run_ik_bool = False
+        self.button1.setEnabled(True)
+        self.progress_bar.setValue(0)
+        msg = Bool()
+        msg.data = self.run_ik_bool
+        
+
+        self.poly_show = msg.data
+        self.pub_start_ik.publish(msg)
+        self.run_ik_bool = True
+
+
+        #self.poly_off = msg.data
+        #self.pub_poly_display.publish(msg)
+
+        # Update the status bar
+        self.status_bar.showMessage("Reset")
+        # Update the progress bar
+        #self.progress_bar.setValue(75)
         
 
 if __name__ == '__main__':
