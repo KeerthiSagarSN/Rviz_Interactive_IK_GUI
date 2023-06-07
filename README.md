@@ -1,17 +1,16 @@
 # ROS - Interactive Rviz Interface for IK Computation with Capacity Margin Index
 
-This repository includes nodes for generating and visualizing Cartesian Available : (1) Velocity Polytope (2) Force Polytope (3) Desired Polytope (4) Running Inverse Kinematics Computation for Serial Robots
+This repository includes a GUI panel to interactively select a 3D position for computing Inverse kinematics for a serial manipulator.
 
 ## Installation
-This repository was tested on UR5 robot with [UR5](https://github.com/KeerthiSagarSN/universal_robot.git) package. The robot is controllled through an external PC with [ROS Noetic](http://wiki.ros.org/noetic) and Ubuntu 20.04 LTS. 
+This repository was tested with [UR5](https://github.com/KeerthiSagarSN/universal_robot.git) URDF package and Sawyer Robot URDF package. 
 ### Hardware requirements
 * External PC. Our specifications were;
 ```
-ntel® Core™ i7-10700K CPU @ 3.80GHz × 16
+Intel® Core™ i7-10700K CPU @ 3.80GHz × 16
 RAM: 16 GB
 Graphics: NVIDIA Corporation GP106GL [Quadro P2200]
 ```
-* UR5 Robot
 
 
 ### Software and Library Requirements - Dependencies
