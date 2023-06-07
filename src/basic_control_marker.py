@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import rospy
 from visualization_msgs.msg import InteractiveMarker, InteractiveMarkerControl, Marker, InteractiveMarkerFeedback
@@ -48,7 +48,10 @@ class SphereMarker:
         #rospy.loginfo("Sphere Marker is now at %f, %f, %f" % (p.x, p.y, p.z))
 
 
-if __name__ == '__main__':
+try:
     rospy.init_node("sphere_marker_node")
     sphere_marker = SphereMarker()
     rospy.spin()
+
+except Exception as e:
+    print('Exception:', e)

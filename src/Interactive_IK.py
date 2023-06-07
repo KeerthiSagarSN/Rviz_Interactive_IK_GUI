@@ -65,6 +65,15 @@ class MyPanel(QWidget):
         self.sub_ik_status = rospy.Subscriber("status_ik",String,self.status_ik)
 
 
+
+    def paintEvent(self, event):
+        painter = QPainter(self)  # Create a QPainter object
+        #painter.begin(self)  # Begin painting operations
+
+        # Perform painting operations here, if needed
+
+        #painter.end()  # End painting operations
+
     def status_ik(self,ik_status_msg):
         self.ik_status = ik_status_msg.data
 
@@ -153,9 +162,18 @@ class MyPanel(QWidget):
         self.status_bar.showMessage("Reset")
         # Update the progress bar
         #self.progress_bar.setValue(75)
-        
+
+def handle_exception(exc_type, exc_value, exc_traceback):
+    # Handle and log the exception
+    print(f"Exception occurred: {exc_type} - {exc_value}")
+    # Perform any necessary cleanup or error handling here  
 
 if __name__ == '__main__':
+    
+    
+    # Set the exception hook to the custom handler
+    sys.excepthook = handle_exception
+    
     # Initialize the ROS node
     rospy.init_node('my_rviz_panel')
 
@@ -167,6 +185,7 @@ if __name__ == '__main__':
 
     # Show the panel widget
     panel.show()
-
+    
     # Run the Qt event loop
     sys.exit(app.exec_())
+    
